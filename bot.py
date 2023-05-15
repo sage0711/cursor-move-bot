@@ -1,11 +1,17 @@
-import pyautogui
-import random
+import math
+import time
+from mouse import move
+
+radius = 50
+angle_step = 0.1
+
+x0, y0 = 500, 500
 
 while True:
+    for angle in range(0, 360):
+        x = int(x0 + radius * math.cos(angle))
+        y = int(y0 + radius * math.sin(angle))
 
-    x, y = pyautogui.position()
-    new_x = x + random.randint(-100, 100)
-    new_y = y + random.randint(-100, 100)
-    pyautogui.moveTo(new_x, new_y, duration=0.25)
+        move(x, y)
 
-    
+        time.sleep(angle_step)
