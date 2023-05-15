@@ -2,6 +2,10 @@ import pyautogui
 import random
 
 while True:
-    x = random.randint(0, pyautogui.size().width)
-    y = random.randint(0, pyautogui.size().height)
-    pyautogui.moveTo(x, y, duration = 0.25)
+
+    x, y = pyautogui.position()
+    new_x = x + random.randint(-100, 100)
+    new_y = y + random.randint(-100, 100)
+    pyautogui.moveTo(new_x, new_y, duration=0.25)
+
+    
